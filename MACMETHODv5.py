@@ -574,6 +574,7 @@ def Pressure_Poisson(press,press_copy,nx,ny,toll,omega,eff,gee,d_ex,d_why,d_tee)
                 
                 """
                 V-6 PRESSURE
+                using SOR. omega is set at top of code
                 """
                 press[m,n] = (1-omega)*press_copy[m,n] + omega*.25*(press_copy[m+1,n]+press[m-1,n]+press_copy[m,n+1]+press[m,n-1]) -  omega*((((eff[m,n]-eff[m-1,n])/d_ex) + ((gee[m,n]-gee[m,n-1])/d_why))/d_tee)*((d_ex**2)/(4))  
                 #CHECK ABOVE EQN FOR ACCURACY
